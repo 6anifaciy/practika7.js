@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- //Задание 1 -->
+    <button id="hideButton">Нажми, чтобы скрыть меня</button>
+    <!-- Задание 2/3 -->
+    <div id="text">Меня нужно скрыть, а потом обратно показать</div>
+    <button id="toggleButton">Скрыть элемент</button>
+    <!-- задание 4 -->
+    Нажмите в любое место для перемещения мяча.
+    <img src="https://ru.js.cx/clipart/ball.svg" id="ball" alt="Мяч">
+
+
+    <script>
+        //Задание 1
+        let button = document.getElementById('hideButton');
+
+
+        button.onclick = function () {
+
+            button.style.display = 'none';
+        }
+        ////////////////////////////////////////////////
+
+
+        //Задание 2/3
+        let textDiv = document.getElementById('text');
+        let toggleButton = document.getElementById('toggleButton');
+
+
+        toggleButton.onclick = function () {
+
+            if (textDiv.style.display === 'none') {
+
+                textDiv.style.display = 'block';
+                toggleButton.textContent = 'Скрыть элемент';
+            } else {
+
+                textDiv.style.display = 'none';
+                toggleButton.textContent = 'Показать элемент';
+            }
+        }
+
+        //Задание 4
+        document.body.addEventListener('click', function (event) {
+
+            let ball = document.getElementById('ball');
+
+
+            let x = event.clientX;
+            let y = event.clientY;
+
+
+            ball.style.transform = `translate(${x - ball.width / 2}px, ${y - ball.height / 2}px)`;
+        });
+
+    </script>
+</body>
+
+</html>
